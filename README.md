@@ -1,4 +1,4 @@
-# Kelompok PBP-E04 but with Flutter
+# Kelompok PBP-E04
 
 ## Anggota
 |              Nama           |    NPM     |
