@@ -11,7 +11,7 @@
 | Bimasena Putra              | 2006530356 |
 
 ## Links
-- [Heroku](https://pbp-tk-e04.herokuapp.com)
+- [APK Releases](https://github.com/robert-adit-sukoco/tk-pbp-uas/releases)
 - [GitHub](https://github.com/farahaulita/pbp-tk)
 
 <br></br>
@@ -20,6 +20,13 @@
 Kelompok kami membuat aplikasi dalam bidang E-Learning bernama LeaN (Learning Environment) yang menawarkan pengalaman pembelajaran yang optimal berbasis online. Pada masa pandemi seperti ini, pembelajaran berbasis online memberikan dampak yang signifikan bagi pendidikan di Indonesia. Adanya teknologi yang dapat membantu pembelajaran online akan sangat membantu perkembangan pendidikan jenjang SD, SMP, dan SMA pada masa pandemi in. Aplikasi LeaN sendiri merupakan aplikasi yang bergerak dalam E-Learning system yang akan membantu murid dan guru.Terdapat dua role yang ditawarkan oleh aplikasi LeaN yaitu role murid dan role guru. Fitur utama yang ditawarkan aplikasi LeaN antara lain, task viewer dan grade viewer untuk murid serta task manager untuk guru. Akses setiap role terhadap modul akan dijelaskan pada poin di bawah. 
 
 Dengan adanya LeaN, akses pendidikan yang ditawarkan dapat memberikan kemudahan bagi murid serta guru yang mengaksesnya. LeaN sebagai aplikasi yang membantu pengumpulan tugas murid serta pemberian nilai juga dapat menjadikan program pembelajaran menjadi efektif dan efisien karena penggunaannya yang mudah. 
+
+<br></br>
+
+## Cerita Aplikasi
+Pandemi COVID-19 yang melanda dunia termasuk negara indonesia saat ini, telah menimbulkan banyak dampak terhadap pola kegiatan masyarakat dan infrastruktur negara. Penyebaran virus yang sangat cepat dan sulit dicegah memaksa pemerintah untuk melakukan lockdown, sehingga masyarakat sulit untuk melakukan kegiatan sehari-hari mereka termasuk kegiatan belajar mengajar. Sistem pendidikan termasuk salah satu hal yang paling terdampak oleh pandemi, masyarakat yang biasanya datang ke sekolah atau kampus mereka menjadi terhambat akibat adanya pemberlakuan lockdown.
+
+Dengan adanya masalah tersebut kelompok kami terinspirasi untuk membuat sebuah platform aplikasi yang dapat memfasilitasi kegiatan belajar mengajar secara jarak jauh melalui jaringan internet atau yang biasa disebut pembelajaran daring. Aplikasi ini berisikan fitur yang dibutuhkan dalam belajar mengajar terutama dalam penugasan, pengajar dapat mengupload tugas beserta deadline dan deskripsinya agar dapat diakses oleh siswa, sedangkan siswa dapat mengumpulkan tugas mereka dengan mengupload file yang telah mereka kerjakan. Aplikasi ini sangat bermanfaat karena dapat membantu penugasan dalam kegiatan belajar dan mengajar tetap berjalan di tengah masa pandemi ini. Selain itu, pada aplikasi ini terdapat fitur raport siswa yang dapat digunakan untuk melihat nilai yang telah diberikan, juga kolom komentar untuk mengajukan perbaikan apabila terdapat kesalahan pada penilaian.
 
 <br></br>
 
@@ -55,3 +62,8 @@ Guru berperan untuk memberikan <i>task</i> yang nantinya akan dikerjakan oleh mu
 
 ### 2. Murid
 Murid berperan untuk mengunggah <i>file</i> yang akan dijadikan submission untuk <i>task</i> yang bersangkutan.
+
+<br></br>
+
+## Cara Integrasi dengan Web Service
+Setelah membuat website dari LeaN, kami akan melakukan integrasikan LeaN menjadi sebuah aplikasi mobile yang dapat diakses oleh user yaitu murid dan guru. Integrasi antara front-end yang dibuat menggunakan Flutter dan back-end DJango dilakukan dengan menggunakan fetching data menggunakan package http yang kemudian diaplikasikan untuk asynchronous HTTP request-response. Back-end yang digunakan bersumber dari back-end dari web yang sebelumnya telah dibuat.
