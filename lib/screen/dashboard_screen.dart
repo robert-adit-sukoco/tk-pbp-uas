@@ -31,12 +31,27 @@ class _Dashboard extends State<Dashboard> {
       }
     } else {
       for (var post in responseList) {
-        listItem.add(ListTile(
-          leading: const Icon(Icons.list),
-          trailing: TextButton(
-            child: const Text("View grade"),
-            onPressed: () async {
-              Map<String, dynamic> inputJson = {};
+        listItem.add(Card(
+          
+          child: Column(mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListTile(
+              leading: const Icon(Icons.album),
+               title: Text(post['name'].split('-')[1].trim() +
+              " - " + post['name'].split('-')[0].trim()),
+              
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  child: const Text('Task Viewer'),
+                  onPressed: () {/* ... */},
+                ),
+                const SizedBox(width: 8),
+                TextButton(
+                  child: const Text('View Grades'),
+                  onPressed: () async {Map<String, dynamic> inputJson = {};
               inputJson.addAll(widget.jsonData);
               inputJson.addAll(post);
               final response1 = await http.get(Uri.parse(
@@ -62,13 +77,14 @@ class _Dashboard extends State<Dashboard> {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          Grade(jsonMap: inputJson, jsonList: tmpList)));
-            },
-          ),
-          title: Text(post['name'].split('-')[1].trim() +
-              " - " +
-              post['name'].split('-')[0].trim()),
-        ));
+                          Grade(jsonMap: inputJson, jsonList: tmpList)));},
+                ),
+                const SizedBox(width: 8),
+              ],
+            ),
+          ],
+        )));
+        
       }
     }
     setState(() {
@@ -95,3 +111,4 @@ class _Dashboard extends State<Dashboard> {
             }));
   }
 }
+

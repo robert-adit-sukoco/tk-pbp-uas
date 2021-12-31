@@ -155,7 +155,7 @@ class _BelajarFormState extends State<BelajarForm> {
                                     username +
                                     "&password=" +
                                     password));
-                            if (response1.statusCode == 200) {
+                            if (response1.statusCode == 200 ) {
                               final response2 = await http.get(Uri.parse(
                                   "https://pbp-uas-backend.herokuapp.com/apiuser/" +
                                       username +
