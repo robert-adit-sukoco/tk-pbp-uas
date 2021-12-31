@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {"name":"Python: Current File","type":"python","request":"launch","program":"lib/main.dart","console":"integratedTerminal"},
+
+        {
+            "name": "tk-pbp-uas",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "tk-pbp-uas (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": [
+                "--no-sound-null-safety"
+            ]
+        }
+    ]
+}
