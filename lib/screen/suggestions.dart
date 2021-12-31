@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-// import 'lib.dart'
-import 'dart:convert';
-import '../main.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     title: "Suggestions Form",
     home: SuggestionsForm(),
   ));
 }
 
 class SuggestionsForm extends StatefulWidget {
+  const SuggestionsForm({Key? key}) : super(key: key);
+
   @override
   _SuggestionsFormState createState() => _SuggestionsFormState();
 }
@@ -27,8 +25,8 @@ class _SuggestionsFormState extends State<SuggestionsForm> {
 
   showAlertDialog(BuildContext context, String _uname) {
     // Create button
-    Widget okButton = FlatButton(
-      child: Text("OK"),
+    Widget okButton = TextButton(
+      child: const Text("OK"),
       onPressed: () {
         Navigator.of(context).pop();
       },
@@ -79,7 +77,7 @@ class _SuggestionsFormState extends State<SuggestionsForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Suggestions Form"),
+        title: const Text("Suggestions Form"),
         backgroundColor: Colors.indigo,
       ),
       body: Form(
@@ -89,25 +87,25 @@ class _SuggestionsFormState extends State<SuggestionsForm> {
           child: Center(
             child: Column(
               children: [
-                Padding(padding: EdgeInsets.only(top: 40.0)),
-                Text(
+                const Padding(padding: EdgeInsets.only(top: 40.0)),
+                const Text(
                   'Put your suggestions about LeaN over here!!',
                   style: TextStyle(fontFamily: 'Raleway-Bold', fontSize: 25),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Column(
                   children: [
                     Padding(padding: EdgeInsets.all(30.0)),
                     // TextField(),
                     TextFormField(
-                      decoration: new InputDecoration(
+                      decoration: InputDecoration(
                         // fillColor: Color(0xffF1F0F5),
                         hintText: "ex: fasya.prandari",
                         labelText: "Name",
 
-                        icon: Icon(Icons.people),
+                        icon: const Icon(Icons.people),
                         border: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(5.0)),
+                            borderRadius: BorderRadius.circular(5.0)),
                       ),
                       onChanged: (String value) {
                         baru(value);
@@ -120,16 +118,16 @@ class _SuggestionsFormState extends State<SuggestionsForm> {
                       },
                     ),
 
-                    Padding(padding: EdgeInsets.all(10.0)),
+                    const Padding(padding: EdgeInsets.all(10.0)),
                     TextFormField(
-                      decoration: new InputDecoration(
+                      decoration: InputDecoration(
                         // fillColor: Color(0xffF1F0F5),
                         // hintText: "contoh: Budidudi",
                         labelText: "Notes",
-                        icon: Icon(Icons.note),
+                        icon: const Icon(Icons.note),
 
                         border: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(10.0)),
+                            borderRadius: BorderRadius.circular(10.0)),
                       ),
                       onChanged: (String value) {
                         baru2(value);
@@ -141,28 +139,27 @@ class _SuggestionsFormState extends State<SuggestionsForm> {
                         return null;
                       },
                     ),
-                    Padding(padding: EdgeInsets.all(30.0)),
-                    RaisedButton(
-                        child: Text(
+                    const Padding(padding: EdgeInsets.all(30.0)),
+                    ElevatedButton(
+                        child: const Text(
                           "Submit",
                           style: TextStyle(color: Colors.white),
                         ),
-                        color: Colors.indigo,
-                        shape: RoundedRectangleBorder(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.indigo,
+                          shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
+                        ),
                         onPressed: () async {
                           if (_formKey.currentState != null &&
                               _formKey.currentState!.validate()) {
                             showAlertDialog(context, _uname);
-                            print(_uname +
-                                " berhasil memberi masukan: " +
-                                _notes);
                           }
                         }),
 
-                    Padding(padding: EdgeInsets.all(30.0)),
-                    Text(
+                    const Padding(padding: EdgeInsets.all(30.0)),
+                    const Text(
                       '- Learning Environment -',
                       style:
                           TextStyle(fontFamily: 'Raleway-Bold', fontSize: 15),

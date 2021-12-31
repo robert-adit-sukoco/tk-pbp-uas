@@ -1,15 +1,14 @@
 // @dart=2.9
 
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:tk_pbp_uas/widgets/drawer.dart';
-// import 'package:gradient_app_bar/gradient_app_bar.dart';
-// // import 'package:gradient_app_bar/';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   // const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: MyHomePage(title: 'LeaN'),
+      home: const MyHomePage(title: 'LeaN'),
     );
   }
 }

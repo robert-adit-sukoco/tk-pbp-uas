@@ -4,21 +4,23 @@ import 'package:tk_pbp_uas/screen/suggestions.dart';
 import 'package:tk_pbp_uas/screen/login_screen.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
-  final padding = EdgeInsets.symmetric(horizontal: 20);
+  final padding = const EdgeInsets.symmetric(horizontal: 20);
+
+  const NavigationDrawerWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
         color: Colors.indigo,
         child: ListView(
-          children: <Widget>[
+          children: [
             Container(
               height: 120,
               width: double.infinity,
-              padding: EdgeInsets.all(30),
+              padding: const EdgeInsets.all(30),
               alignment: Alignment.center,
-              color: Theme.of(context).accentColor,
-              child: Text(
+              color: Theme.of(context).colorScheme.secondary,
+              child: const Text(
                 'Hello there, Welcome to LeaN!',
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
@@ -38,13 +40,13 @@ class NavigationDrawerWidget extends StatelessWidget {
                     onClicked: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SuggestionsForm())),
+                            builder: (context) => const SuggestionsForm())),
                   ),
                   buildMenuItem(
                     text: 'Login',
                     icon: Icons.people,
                     onClicked: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => BelajarForm())),
+                        MaterialPageRoute(builder: (context) => const BelajarForm())),
                   ),
                 ],
               ),
@@ -60,12 +62,12 @@ class NavigationDrawerWidget extends StatelessWidget {
     required IconData icon,
     required VoidCallback onClicked,
   }) {
-    final color = Colors.white;
+    const color = Colors.white;
     final hoverColor = Colors.white70;
 
     return ListTile(
       leading: Icon(icon, color: color),
-      title: Text(text, style: TextStyle(color: color)),
+      title: Text(text, style: const TextStyle(color: color)),
       hoverColor: hoverColor,
       onTap: onClicked,
     );

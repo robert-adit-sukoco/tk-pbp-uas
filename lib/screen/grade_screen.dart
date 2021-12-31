@@ -289,7 +289,6 @@ class _GradeState extends State<Grade> {
                                 Colors.deepPurple)),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            print(input.text);
                             input.clear();
                           }
                         },

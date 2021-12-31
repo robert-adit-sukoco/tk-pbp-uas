@@ -25,38 +25,15 @@ class _BelajarFormState extends State<BelajarForm> {
 
   String username = "";
   String password = "";
-  String gabungan = "";
   bool ada = false;
 
-  showAlertDialog1(BuildContext context, String _username) {
-    // Create button
-    Widget okButton = TextButton(
-      child: const Text("OK"),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
-    );
-
-    // Create AlertDialog
-    AlertDialog alert1 = AlertDialog(
-      backgroundColor: Colors.lightBlue,
-      title: Text("Login Successful! Nice to meet you " + _username + "!"),
-      // content: Text(""),
-      actions: [
-        okButton,
-      ],
-    );
-
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert1;
-      },
-    );
+  void togglePasswordView() {
+    setState(() {
+      hidepassword = !hidepassword;
+    });
   }
 
-  showAlertDialog2(BuildContext context, String _username) {
+  showAlertDialog(BuildContext context, String _username) {
     // Create button
     Widget okButton = TextButton(
       child: const Text("OK"),
@@ -81,17 +58,6 @@ class _BelajarFormState extends State<BelajarForm> {
         return alert2;
       },
     );
-  }
-
-  void baru(String nama) {
-    setState(() {
-      username = nama;
-      if (username == "") {
-        ada = false;
-      } else {
-        ada = true;
-      }
-    });
   }
 
   @override
@@ -128,6 +94,9 @@ class _BelajarFormState extends State<BelajarForm> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0)),
                       ),
+                      onChanged: (String value) {
+                          username = value;
+                      },
                       controller: usernameCont,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) {
@@ -140,18 +109,25 @@ class _BelajarFormState extends State<BelajarForm> {
 
                     const Padding(padding: EdgeInsets.all(10.0)),
                     TextFormField(
-                      // obscureText: true,
                       obscureText: hidepassword,
                       decoration: InputDecoration(
                         labelText: "Password",
                         icon: const Icon(Icons.lock),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0)),
+                            suffixIcon: IconButton(
+                              color: const Color.fromRGBO(200, 200, 200, 1),
+                              splashRadius: 1,
+                              icon: Icon(hidepassword
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined),
+                              onPressed: togglePasswordView,
+                            ),
                       ),
                       controller: passwordCont,
-                      // onChanged: (String value) {
-                      //   baru(value);
-                      // },
+                      onChanged: (String value) {
+                          password = value;
+                        },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) {
                         if (value != null && value.isEmpty) {
@@ -179,14 +155,11 @@ class _BelajarFormState extends State<BelajarForm> {
                                     username +
                                     "&password=" +
                                     password));
-                            print(response1.request!.method);
-                            print(response1.statusCode);
                             if (response1.statusCode == 200) {
                               final response2 = await http.get(Uri.parse(
                                   "https://pbp-uas-backend.herokuapp.com/apiuser/" +
                                       username +
                                       "/"));
-                              showAlertDialog1(context, username);
                               Map<String, dynamic> feedback =
                                   json.decode(response2.body);
                               Navigator.push(
@@ -195,10 +168,10 @@ class _BelajarFormState extends State<BelajarForm> {
                                       builder: (context) =>
                                           Dashboard(jsonData: feedback)));
                             } else {
-                              showAlertDialog2(context, username);
+                              showAlertDialog(context, username);
                             }
                           } else {
-                            showAlertDialog2(context, username);
+                            showAlertDialog(context, username);
                           }
                         }
                         // }
