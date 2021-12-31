@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tk_pbp_uas/pages/login_page.dart';
-import 'package:tk_pbp_uas/pages/suggestions.dart';
+
+import 'package:tk_pbp_uas/screen/suggestions.dart';
+import 'package:tk_pbp_uas/screen/login_screen.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);

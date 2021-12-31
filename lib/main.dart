@@ -1,9 +1,7 @@
 // @dart=2.9
 
 import 'package:flutter/material.dart';
-import 'pages/login_page.dart';
 import 'package:flutter/material.dart';
-import 'utils.dart';
 import 'package:tk_pbp_uas/widgets/drawer.dart';
 // import 'package:gradient_app_bar/gradient_app_bar.dart';
 // // import 'package:gradient_app_bar/';
@@ -11,16 +9,6 @@ import 'package:tk_pbp_uas/widgets/drawer.dart';
 void main() {
   runApp(MyApp());
 }
-
-class Env {
-  static String URL_PREFIX = "http://127.0.0.1:8000";
-  static bool isLoggedIn = false;
-  static Map<dynamic, dynamic> userData = {
-    "name": "",
-    "pass": "",
-  };
-}
-
 class MyApp extends StatelessWidget {
   // const MyApp({Key? key}) : super(key: key);
 
