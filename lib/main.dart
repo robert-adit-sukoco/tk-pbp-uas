@@ -39,18 +39,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         drawer: buildDrawer(),
         appBar: AppBar(
-          title: Text('LeaN'),
+          title: const Text('LeaN'),
           // backgroundColorStart: Colors.blue,
           // backgroundColorEnd: Colors.indigo,
         ),
         body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     stops: [0.2, 0.5],
                     colors: [Colors.indigo, Colors.blue])),
-            child: Center(
+            child: const Center(
                 child: Text(
               'LeaN \n'
               '-Learning Environment- \n',
@@ -63,5 +63,5 @@ class _MyHomePageState extends State<MyHomePage> {
             ))));
   }
 
-  Widget buildDrawer() => NavigationDrawerWidget();
+  Widget buildDrawer() => const NavigationDrawerWidget();
 }

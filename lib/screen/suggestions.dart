@@ -95,7 +95,7 @@ class _SuggestionsFormState extends State<SuggestionsForm> {
                 const SizedBox(height: 20),
                 Column(
                   children: [
-                    Padding(padding: EdgeInsets.all(30.0)),
+                    const Padding(padding: EdgeInsets.all(30.0)),
                     // TextField(),
                     TextFormField(
                       decoration: InputDecoration(

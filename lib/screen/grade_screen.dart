@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 
-/**
- * My implemention using my friend's made backend
- * optimized version available here:
- * https://github.com/bienreti/pbp-uas-flutter
- */
+///My implemention using my friend's made backend
+///optimized version available here:
+/// https://github.com/bienreti/pbp-uas-flutter
+
 class Grade extends StatefulWidget {
   const Grade({Key? key, required this.jsonMap, required this.jsonList})
       : super(key: key);
