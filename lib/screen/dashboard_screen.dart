@@ -18,16 +18,28 @@ class _Dashboard extends State<Dashboard> {
     final response = await http.get(Uri.parse(
         "https://pbp-uas-backend.herokuapp.com/get_students_subjects?sid=" +
             widget.jsonData['username']));
+
+    
+
     List<Widget> listItem = [];
     List<dynamic> responseList = json.decode(response.body);
+    
     if (widget.jsonData['is_teacher'].toString().compareTo("true") == 0) {
-      for (var post in responseList) {
+      final response2 = await http.get(Uri.parse(
+        "https://pbp-uas-backend.herokuapp.com/get_teachers_subjects?teacher_id=" +
+            widget.jsonData['username']));
+
+      List<dynamic> responseList2 = json.decode(response2.body);
+      for (var post in responseList2) {
+
         listItem.add(ListTile(
           leading: const Icon(Icons.list),
           title: Text(post['name'].split('-')[1].trim() +
               " - " +
               post['name'].split('-')[0].trim()),
-        ));
+          trailing: TextButton(child: const Text("Task Manager"),
+          onPressed: () {},)
+          ,));
       }
     } else {
       for (var post in responseList) {
